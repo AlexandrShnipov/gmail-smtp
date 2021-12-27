@@ -1,7 +1,20 @@
 const express = require('express')
 const nodemailer = require("nodemailer");
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+
+let smtp_login = process.env.SMTP_LOGIN ||  'alexandershnipov@gmail.com';
+let smtp_password = process.env.SMTP_PASSWORD ||  'Gavrusha+Dasha=';
+
+// const port = 3010;
+
+app.use(cors())
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
@@ -25,20 +38,33 @@ app.get('/', (req, res) => {
 // });
 
 app.get('/sendMessage', async (req, res) => {
-  
+
+    let {message, email, name} =req.body;
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'Sasha', // sender address
+    from: 'My profile page', // sender address
     to: "SShnipov@gmail.com", // list of receivers
-    subject: "Тестирую GMAIL", // Subject line
+    subject: "My profile page", // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
-    html: "<b>ПРивет! Тестирую post-server</b>", // html body
+    html: `<b>Сообщение с вашего потфолио</b>
+<div>
+  name: ${name}
+</div>
+<div>
+  email: ${email}
+</div>
+<div>
+  message: ${message}
+</div>`
   });
 
-  res.send('blablabla yoyoyo!');
+  res.send('ok');
 
 });
+
+
+let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
