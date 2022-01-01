@@ -11,7 +11,7 @@ const app = express();
 // let smtp_login = process.env.SMTP_LOGIN ||  'alexandershnipov@gmail.com';
 // let smtp_password = process.env.SMTP_PASSWORD ||  'Gavrusha+Dasha=';
 
-const port = 3010;
+// const port = 3010;
 
 app.use(cors())
 // parse application/x-www-form-urlencoded
@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-let smtp_login = process.env.SMTP_LOGIN || 'alexandershnipov@gmail.com';
-let smtp_password = process.env.SMTP_PASSWORD || 'Gavrusha+Dasha=';
+let smtp_login = process.env.SMTP_LOGIN || '...';
+let smtp_password = process.env.SMTP_PASSWORD || '...';
 
 //! 2!!!=== create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
