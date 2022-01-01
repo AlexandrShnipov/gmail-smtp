@@ -8,9 +8,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
-// let smtp_login = process.env.SMTP_LOGIN ||  'alexandershnipov@gmail.com';
-// let smtp_password = process.env.SMTP_PASSWORD ||  'Gavrusha+Dasha=';
-
 // const port = 3010;
 
 app.use(cors())
@@ -53,9 +50,9 @@ app.post('/sendMessage', async (req, res) => {
   let info = await transporter.sendMail({
     from: 'My profile page', // sender address
     to: "SShnipov@gmail.com", // list of receivers
-    subject: "My profile page", // Subject line
+    subject: <b>"MY PROFILE PAGE"</b>, // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
-    html: `<b>Сообщение с вашего потфолио</b>
+    html: `<b>Сообщение с вашего портфолио</b>
 <div>
   name: ${name}
 </div>
