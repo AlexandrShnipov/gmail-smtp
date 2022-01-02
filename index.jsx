@@ -53,7 +53,7 @@ app.post('/sendMessage', async (req, res) => {
     subject: "MY PROFILE PAGE", // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
     html: `<b>Сообщение с вашего портфолио</b>
-<div>
+<div styles={{padding:'10px'}}>
   name: ${name}
 </div>
 <div>
