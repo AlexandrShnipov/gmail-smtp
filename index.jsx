@@ -50,7 +50,7 @@ app.post('/sendMessage', async (req, res) => {
   let info = await transporter.sendMail({
     from: 'Post from portfolio site', // sender address
     to: "SShnipov@gmail.com", // list of receivers
-    subject: "⚡<b>POST FROM MY PORTFOLIO SITE</b>⚡", // Subject line
+    subject: "❗❗❗POST FROM MY PORTFOLIO SITE❗❗❗", // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
     html: `<b>Сообщение с моего сайта-портфолио</b>
     <table>
