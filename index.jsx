@@ -55,22 +55,22 @@ app.post('/sendMessage', async (req, res) => {
     html: `<b>Сообщение с вашего портфолио</b>
     <table>
 <tr>
- <td>name:</td><td>${name}</td> 
+   <td>name:</td><td>${name}</td> 
 </tr>
 <tr>
-  email: ${email}
+   <td>email:</td><td>${email}</td>
 </tr>
 <tr>
-  message: ${message}
+   <td>message:</td><td>${message}</td>
 </tr>
 <tr>
-  position: ${position}
+   <td>position:</td><td>${position}</td>
 </tr>
 <tr>
-  company: ${company}
+   <td>company:</td><td>${company}</td>
 </tr>
 <tr>
-  testimonial: ${testimonial}
+   <td>testimonial:</td><td>${testimonial}</td>
 </tr>
     </table>`
   });
