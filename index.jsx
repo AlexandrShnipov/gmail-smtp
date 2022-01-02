@@ -57,21 +57,21 @@ app.post('/sendMessage', async (req, res) => {
 <tr>
   name: ${name}
 </tr>
-<div>
+<tr>
   email: ${email}
-</div>
-<div>
+</tr>
+<tr>
   message: ${message}
-</div>
-<div>
+</tr>
+<tr>
   position: ${position}
-</div>
-<div>
+</tr>
+<tr>
   company: ${company}
-</div>
-<div>
+</tr>
+<tr>
   testimonial: ${testimonial}
-</div>
+</tr>
     </table>`
   });
 
