@@ -55,7 +55,7 @@ app.post('/sendMessage', async (req, res) => {
     html: `<b>Сообщение с вашего портфолио</b>
     <table>
 <tr>
-  name: ${name}
+ <td>name:</td><td>${name}</td> 
 </tr>
 <tr>
   email: ${email}
