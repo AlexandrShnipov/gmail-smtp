@@ -1,3 +1,7 @@
+import cors from 'cors';
+const server = express();
+server.use(cors());
+
 //! 1
 const express = require('express')
 //! 2
