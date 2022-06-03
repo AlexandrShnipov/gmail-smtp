@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
+////555
 app.options('*', function (req,res) { res.sendStatus(200); });
 
 
@@ -33,10 +34,10 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-app.get('/', (req, res) => {
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
 
-  res.send('Hello World!')
-});
 
 //! 3
 app.post('/sendMessage', async (req, res) => {
@@ -80,5 +81,5 @@ app.post('/sendMessage', async (req, res) => {
 let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`'CORS-enabled web server listening on port http://localhost:${port}`)
 });
