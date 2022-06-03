@@ -70,7 +70,6 @@ app.post('/sendMessage', async (req, res) => {
   });
 
   res.send('ok');
-res.set('Access-Control-Allow-Origin', '*');
 });
 
 
