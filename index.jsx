@@ -70,6 +70,7 @@ app.post('/sendMessage', async (req, res) => {
   });
 
   res.send('ok');
+
 });
 
 
