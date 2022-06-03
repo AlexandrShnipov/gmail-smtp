@@ -8,6 +8,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // const port = 3010;
 
 app.use(cors())
