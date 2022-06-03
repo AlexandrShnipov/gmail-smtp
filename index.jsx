@@ -31,8 +31,9 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
   res.send('Hello World!')
+   res.json({msg: 'This is CORS-enabled for all origins!'}
 });
 
 //! 3
