@@ -78,5 +78,5 @@ app.post('/sendMessage', async (req, res) => {
 let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`CORS-enabled web server listening at http://localhost:${port}`)
 });
