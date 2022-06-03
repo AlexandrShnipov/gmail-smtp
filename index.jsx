@@ -42,7 +42,7 @@ app.post('/sendMessage', async (req, res) => {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: 'Post from portfolio site', // sender address
-    to: "Sshnipov@gmail.com", // list of receivers
+    to: "AlexanderShnipov@outlook.com", // list of receivers
     subject: "❗❗❗POST FROM MY PORTFOLIO SITE❗❗❗", // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
     html: `<b>Сообщение с моего сайта-портфолио</b>
