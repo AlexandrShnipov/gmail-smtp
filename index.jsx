@@ -8,7 +8,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
-
 // const port = 3010;
 
 app.use(cors())
@@ -31,10 +30,8 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send('Hello World!')
-   res.json({msg: 'This is CORS-enabled for all origins!'}
-            Access-Control-Allow-Origin: *
 });
 
 //! 3
@@ -45,7 +42,7 @@ app.post('/sendMessage', async (req, res) => {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: 'Post from portfolio site', // sender address
-    to: "sshnipov@gmail.com", // list of receivers
+    to: "Sshnipov@gmail.com", // list of receivers
     subject: "❗❗❗POST FROM MY PORTFOLIO SITE❗❗❗", // Subject line
     // text: "ПРивет! Тестирую post-server", // plain text body
     html: `<b>Сообщение с моего сайта-портфолио</b>
@@ -79,5 +76,5 @@ app.post('/sendMessage', async (req, res) => {
 let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
-  console.log(`CORS-enabled web server listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
 });
