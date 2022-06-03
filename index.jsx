@@ -14,11 +14,6 @@ app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://smtp-nodejs-my-server.herokuapp.com/sendMessage');
-  next();
-});
-
 // parse application/json
 app.use(bodyParser.json());
 
@@ -36,6 +31,7 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/', (req, res) => {
+   res.header('Access-Control-Allow-Origin'
   res.send('Hello World!')
 });
 
