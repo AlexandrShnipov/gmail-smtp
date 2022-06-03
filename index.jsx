@@ -8,6 +8,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
+import cors from 'cors';
+const server = express();
+server.use(cors());
+
 // const port = 3010;
 
 app.use(cors())
