@@ -8,11 +8,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-
 // const port = 3010;
 
 app.use(cors())
@@ -36,7 +31,6 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/', (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
   res.send('Hello World!')
 });
 
