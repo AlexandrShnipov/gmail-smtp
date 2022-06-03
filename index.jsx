@@ -31,6 +31,7 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
   res.send('Hello World!')
 });
 
