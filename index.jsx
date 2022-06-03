@@ -14,6 +14,11 @@ app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // parse application/json
 app.use(bodyParser.json());
 
