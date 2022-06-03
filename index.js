@@ -6,16 +6,19 @@ const nodemailer = require("nodemailer");
 const cors = require('cors');
 // ! 5
 const bodyParser = require('body-parser');
-const app=express().use('*', cors());
+const app = express();
 
 // const port = 3010;
 
-//app.use(cors())
+app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.options('*', function (req,res) { res.sendStatus(200); });
+
 
 let smtp_login = process.env.SMTP_LOGIN || '...';
 let smtp_password = process.env.SMTP_PASSWORD || '...';
