@@ -8,9 +8,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
-import cors from 'cors';
-const server = express();
-server.use(cors());
+(request: Request, response: Response): void => {
+      response.status(200)
+      response.header({
+        'Access-Control-Allow-Origin': '*',
+      });
+}
 
 // const port = 3010;
 
