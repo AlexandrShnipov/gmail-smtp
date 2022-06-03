@@ -30,10 +30,9 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-app.get('/products/:id', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
 
 //! 3
 app.post('/sendMessage', async (req, res) => {
@@ -74,6 +73,8 @@ app.post('/sendMessage', async (req, res) => {
 });
 
 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
-})
+let port = process.env.PORT || 3010;
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+});
