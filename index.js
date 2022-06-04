@@ -17,13 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
-////555
-app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
-app.del('/products/:id', cors(), function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
-app.options('*', cors()) // include before other routes
-
 let smtp_login = process.env.SMTP_LOGIN || '...';
 let smtp_password = process.env.SMTP_PASSWORD || '...';
 
@@ -37,10 +30,9 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-app.get('/products/:id', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
 
 //! 3
 app.post('/sendMessage', async (req, res) => {
@@ -84,5 +76,5 @@ app.post('/sendMessage', async (req, res) => {
 let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
-  console.log(`'CORS-enabled web server listening on port http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
 });
