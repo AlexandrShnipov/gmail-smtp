@@ -18,8 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 ////555
-app.options('*', function (req,res) { res.sendStatus(200); });
-
+app.options('/products/:id', cors()) // enable pre-flight request for DELETE request
+app.del('/products/:id', cors(), function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+app.options('*', cors()) // include before other routes
 
 let smtp_login = process.env.SMTP_LOGIN || '...';
 let smtp_password = process.env.SMTP_PASSWORD || '...';
