@@ -30,6 +30,10 @@ let transporter = nodemailer.createTransport({
   },
 });
 
+app.options('/*', (_, res) => {
+  res.sendStatus(200);
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
