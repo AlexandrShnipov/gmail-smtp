@@ -35,7 +35,7 @@ let transporter = nodemailer.createTransport({
 
 //testing
 // app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "https://alexandrshnipov.github.io/portfolio_react/"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Origin", "https://alexandrshnipov.github.io"); // update to match the domain you will make the request from
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   next();
 // });
@@ -54,9 +54,11 @@ let transporter = nodemailer.createTransport({
 
   //testing
 
-app.options('/*', (_, res) => {
-  res.sendStatus(200);
-});
+// app.options('/*', (_, res) => {
+//   res.sendStatus(200);
+// });
+
+app.options('*', cors())
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
