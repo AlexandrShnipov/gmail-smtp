@@ -31,36 +31,36 @@ let transporter = nodemailer.createTransport({
 });
 
 //testing
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://alexandrshnipov.github.io/portfolio_react/"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "https://alexandrshnipov.github.io/portfolio_react/"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+//
+// app.options('/*', (_, res) => {
+//   res.sendStatus(200);
+// });
+//
+// app.get('/', (req, res, next) => {
+//   res.send('Hello World!')
+// });
+//
+// //! 3
+// app.post('/sendMessage', async (req, res, next) => {
+//   // Handle the post for this route
+
+  //testing
 
 app.options('/*', (_, res) => {
   res.sendStatus(200);
 });
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
 //! 3
-app.post('/sendMessage', async (req, res, next) => {
-  // Handle the post for this route
-
-  //testing
-
-// app.options('/*', (_, res) => {
-//   res.sendStatus(200);
-// });
-//
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// });
-//
-// //! 3
-// app.post('/sendMessage', async (req, res) => {
+app.post('/sendMessage', async (req, res) => {
 
   let { name, email, message, position, company, testimonial } = req.body;
 
