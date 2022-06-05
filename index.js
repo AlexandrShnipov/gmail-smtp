@@ -11,7 +11,7 @@ const app = express();
 // const port = 3010;
 
 app.use(cors({
-  origin: 'https://alexandrshnipov.github.io/portfolio_react/',
+  origin: 'https://alexandrshnipov.github.io',
   credentials: true,
 }))
 // parse application/x-www-form-urlencoded
