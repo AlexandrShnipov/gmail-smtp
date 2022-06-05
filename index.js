@@ -10,7 +10,10 @@ const app = express();
 
 // const port = 3010;
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://alexandrshnipov.github.io/portfolio_react/',
+  credentials: true,
+}))
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
