@@ -10,10 +10,7 @@ const app = express();
 
 // const port = 3010;
 
-app.use(cors({
-  origin: 'https://alexandrshnipov.github.io',
-  credentials: true,
-}))
+app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -37,9 +34,13 @@ app.options('/*', cors(), (_, res, next) => {
   res.sendStatus(200);
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+app.get('/', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+//
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// });
 
 //! 3
 app.post('/sendMessage', async (req, res) => {
@@ -83,5 +84,5 @@ app.post('/sendMessage', async (req, res) => {
 let port = process.env.PORT || 3010;
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`CORS-enabled web server listening on port:${port}`)
 });
